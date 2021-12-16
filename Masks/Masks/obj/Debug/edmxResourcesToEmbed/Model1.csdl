@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="user16Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="id_Product_materials">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="product_materials" Relationship="Self.FK_product_materials_id_Product_materials" FromRole="id_Product_materials" ToRole="product_materials" />
+  </EntityType>
+  <EntityType Name="id_type_materials">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="materials_short_s_import" Relationship="Self.FK_materials_short_s_import_id_type_materials" FromRole="id_type_materials" ToRole="materials_short_s_import" />
+  </EntityType>
+  <EntityType Name="id_type_products">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="products_s_import" Relationship="Self.FK_products_s_import_id_type_products" FromRole="id_type_products" ToRole="products_s_import" />
+  </EntityType>
+  <EntityType Name="materials_short_s_import">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Наименование_материала" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="C_Тип_материала" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Id_type_materials" Type="Int32" />
+    <Property Name="C_Количество_в_упаковке" Type="Int32" />
+    <Property Name="C_Единица_измерения" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="C_Количество_на_складе" Type="Int32" />
+    <Property Name="C_Минимальный_возможный_остаток" Type="Int32" />
+    <Property Name="C_Стоимость" Type="Decimal" Precision="19" Scale="4" />
+    <NavigationProperty Name="id_type_materials1" Relationship="Self.FK_materials_short_s_import_id_type_materials" FromRole="materials_short_s_import" ToRole="id_type_materials" />
+    <NavigationProperty Name="products_s_import" Relationship="Self.FK_products_s_import_materials_short_s_import" FromRole="materials_short_s_import" ToRole="products_s_import" />
+  </EntityType>
+  <EntityType Name="product_materials">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Продукция" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Наименование_материала" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Id_name_materials" Type="Int32" />
+    <Property Name="Необходимое_количество_материала" Type="Int32" />
+    <NavigationProperty Name="id_Product_materials" Relationship="Self.FK_product_materials_id_Product_materials" FromRole="product_materials" ToRole="id_Product_materials" />
+    <NavigationProperty Name="products_s_import" Relationship="Self.FK_products_s_import_product_materials" FromRole="product_materials" ToRole="products_s_import" />
+  </EntityType>
+  <EntityType Name="products_s_import">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Наименование_продукции" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Артикул" Type="Int32" />
+    <Property Name="Минимальная_стоимость_для_агента" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Изображение" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Тип_продукции" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="id_type_products" Type="Int32" />
+    <Property Name="Количество_человек_для_производства" Type="Int32" />
+    <Property Name="Номер_цеха_для_производства" Type="Int32" />
+    <Property Name="Id_products" Type="Int32" />
+    <Property Name="Id_materials" Type="Int32" />
+    <NavigationProperty Name="id_type_products1" Relationship="Self.FK_products_s_import_id_type_products" FromRole="products_s_import" ToRole="id_type_products" />
+    <NavigationProperty Name="materials_short_s_import" Relationship="Self.FK_products_s_import_materials_short_s_import" FromRole="products_s_import" ToRole="materials_short_s_import" />
+    <NavigationProperty Name="product_materials" Relationship="Self.FK_products_s_import_product_materials" FromRole="products_s_import" ToRole="product_materials" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_product_materials_id_Product_materials">
+    <End Role="id_Product_materials" Type="Self.id_Product_materials" Multiplicity="0..1" />
+    <End Role="product_materials" Type="Self.product_materials" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="id_Product_materials">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="product_materials">
+        <PropertyRef Name="Id_name_materials" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_materials_short_s_import_id_type_materials">
+    <End Role="id_type_materials" Type="Self.id_type_materials" Multiplicity="0..1" />
+    <End Role="materials_short_s_import" Type="Self.materials_short_s_import" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="id_type_materials">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="materials_short_s_import">
+        <PropertyRef Name="Id_type_materials" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_products_s_import_id_type_products">
+    <End Role="id_type_products" Type="Self.id_type_products" Multiplicity="0..1" />
+    <End Role="products_s_import" Type="Self.products_s_import" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="id_type_products">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="products_s_import">
+        <PropertyRef Name="id_type_products" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_products_s_import_materials_short_s_import">
+    <End Role="materials_short_s_import" Type="Self.materials_short_s_import" Multiplicity="0..1" />
+    <End Role="products_s_import" Type="Self.products_s_import" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="materials_short_s_import">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="products_s_import">
+        <PropertyRef Name="Id_materials" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_products_s_import_product_materials">
+    <End Role="product_materials" Type="Self.product_materials" Multiplicity="0..1" />
+    <End Role="products_s_import" Type="Self.products_s_import" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="product_materials">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="products_s_import">
+        <PropertyRef Name="Id_products" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="user16Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="id_Product_materials" EntityType="Self.id_Product_materials" />
+    <EntitySet Name="id_type_materials" EntityType="Self.id_type_materials" />
+    <EntitySet Name="id_type_products" EntityType="Self.id_type_products" />
+    <EntitySet Name="materials_short_s_import" EntityType="Self.materials_short_s_import" />
+    <EntitySet Name="product_materials" EntityType="Self.product_materials" />
+    <EntitySet Name="products_s_import" EntityType="Self.products_s_import" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <AssociationSet Name="FK_product_materials_id_Product_materials" Association="Self.FK_product_materials_id_Product_materials">
+      <End Role="id_Product_materials" EntitySet="id_Product_materials" />
+      <End Role="product_materials" EntitySet="product_materials" />
+    </AssociationSet>
+    <AssociationSet Name="FK_materials_short_s_import_id_type_materials" Association="Self.FK_materials_short_s_import_id_type_materials">
+      <End Role="id_type_materials" EntitySet="id_type_materials" />
+      <End Role="materials_short_s_import" EntitySet="materials_short_s_import" />
+    </AssociationSet>
+    <AssociationSet Name="FK_products_s_import_id_type_products" Association="Self.FK_products_s_import_id_type_products">
+      <End Role="id_type_products" EntitySet="id_type_products" />
+      <End Role="products_s_import" EntitySet="products_s_import" />
+    </AssociationSet>
+    <AssociationSet Name="FK_products_s_import_materials_short_s_import" Association="Self.FK_products_s_import_materials_short_s_import">
+      <End Role="materials_short_s_import" EntitySet="materials_short_s_import" />
+      <End Role="products_s_import" EntitySet="products_s_import" />
+    </AssociationSet>
+    <AssociationSet Name="FK_products_s_import_product_materials" Association="Self.FK_products_s_import_product_materials">
+      <End Role="product_materials" EntitySet="product_materials" />
+      <End Role="products_s_import" EntitySet="products_s_import" />
+    </AssociationSet>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(user16Model.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(user16Model.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+  </EntityContainer>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+</Schema>

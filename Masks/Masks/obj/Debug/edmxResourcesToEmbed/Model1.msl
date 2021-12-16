@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище user16ModelContainer" CdmEntityContainer="user16Entities">
+    <EntitySetMapping Name="id_Product_materials">
+      <EntityTypeMapping TypeName="user16Model.id_Product_materials">
+        <MappingFragment StoreEntitySet="id_Product_materials">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="id_type_materials">
+      <EntityTypeMapping TypeName="user16Model.id_type_materials">
+        <MappingFragment StoreEntitySet="id_type_materials">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="id_type_products">
+      <EntityTypeMapping TypeName="user16Model.id_type_products">
+        <MappingFragment StoreEntitySet="id_type_products">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="materials_short_s_import">
+      <EntityTypeMapping TypeName="user16Model.materials_short_s_import">
+        <MappingFragment StoreEntitySet="materials_short_s_import">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Наименование_материала" ColumnName="Наименование материала" />
+          <ScalarProperty Name="C_Тип_материала" ColumnName=" Тип материала" />
+          <ScalarProperty Name="Id_type_materials" ColumnName="Id_type_materials" />
+          <ScalarProperty Name="C_Количество_в_упаковке" ColumnName=" Количество в упаковке" />
+          <ScalarProperty Name="C_Единица_измерения" ColumnName=" Единица измерения" />
+          <ScalarProperty Name="C_Количество_на_складе" ColumnName=" Количество на складе" />
+          <ScalarProperty Name="C_Минимальный_возможный_остаток" ColumnName=" Минимальный возможный остаток" />
+          <ScalarProperty Name="C_Стоимость" ColumnName=" Стоимость" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="product_materials">
+      <EntityTypeMapping TypeName="user16Model.product_materials">
+        <MappingFragment StoreEntitySet="product_materials">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Продукция" ColumnName="Продукция" />
+          <ScalarProperty Name="Наименование_материала" ColumnName="Наименование материала" />
+          <ScalarProperty Name="Id_name_materials" ColumnName="Id_name_materials" />
+          <ScalarProperty Name="Необходимое_количество_материала" ColumnName="Необходимое количество материала" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="products_s_import">
+      <EntityTypeMapping TypeName="user16Model.products_s_import">
+        <MappingFragment StoreEntitySet="products_s_import">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Наименование_продукции" ColumnName="Наименование продукции" />
+          <ScalarProperty Name="Артикул" ColumnName="Артикул" />
+          <ScalarProperty Name="Минимальная_стоимость_для_агента" ColumnName="Минимальная стоимость для агента" />
+          <ScalarProperty Name="Изображение" ColumnName="Изображение" />
+          <ScalarProperty Name="Тип_продукции" ColumnName="Тип продукции" />
+          <ScalarProperty Name="id_type_products" ColumnName="id_type_products" />
+          <ScalarProperty Name="Количество_человек_для_производства" ColumnName="Количество человек для производства" />
+          <ScalarProperty Name="Номер_цеха_для_производства" ColumnName="Номер цеха для производства" />
+          <ScalarProperty Name="Id_products" ColumnName="Id_products" />
+          <ScalarProperty Name="Id_materials" ColumnName="Id_materials" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="user16Model.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="Хранилище user16Model.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="Хранилище user16Model.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="Хранилище user16Model.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="Хранилище user16Model.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="user16Model.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="Хранилище user16Model.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="user16Model.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Хранилище user16Model.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Хранилище user16Model.sp_upgraddiagrams" />
+  </EntityContainerMapping>
+</Mapping>

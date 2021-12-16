@@ -1,0 +1,214 @@
+﻿<Page x:Class="Masks.Pages.AddInsertedPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Masks.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AddInsertedPage"
+      FontFamily="Tw Cen MT"
+      Background="White">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <TextBlock
+            Grid.Row="0"
+            Grid.ColumnSpan="4"
+            Text="Добавить/ Изменть продукт"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            FontSize="20"/>
+
+        <TextBlock
+            Grid.Row="2"
+            Grid.Column="0"
+            Text="Артикул:"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            FontSize="15"/>
+        
+        <TextBox
+            Name="txtArt"
+            FontSize="15"
+            Grid.Row="2"
+            Grid.Column="1"
+            Height="30"
+            Width="180"
+            Text="{Binding Артикул}"/>
+
+        <TextBlock
+            Grid.Row="1"
+            Grid.Column="0"
+            Text="Наименование:"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            FontSize="15"/>
+        
+        <TextBox
+            Name="txtName"
+            FontSize="15"
+            Grid.Row="1"
+            Grid.Column="1"
+            Height="30"
+            Width="180"
+            Text="{Binding Наименование_продукции}"/>
+
+        <TextBlock
+            Grid.Row="3"
+            Grid.Column="0"
+            Text="Тип продукта:"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            FontSize="15"/>
+        
+        <ComboBox
+            Name="cmbTypeProd"
+            Grid.Row="3"
+            FontSize="15"
+            Grid.Column="1"
+            Height="30"
+            Width="180"
+            DisplayMemberPath="Name"
+            SelectedItem="{Binding id_type_products}"/>
+
+        <TextBlock
+            Grid.Row="4"
+            Grid.Column="0"
+            Text="Изображение:"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            FontSize="15"/>
+        
+        <TextBox
+            Name="txtImg"
+            Grid.Row="4"
+            Grid.Column="1"
+            FontSize="15"
+            Height="30"
+            Width="180"
+            Text="{Binding Изображение}"/>
+
+        <TextBlock
+            Grid.Row="1"
+            Grid.Column="2"
+            Text="Кол-во человек для производства:"
+            VerticalAlignment="Center"
+            TextWrapping="Wrap"
+            HorizontalAlignment="Center"
+            FontSize="15"/>
+        
+        <TextBox
+            Name="txtColPerBuild"
+            Grid.Row="1"
+            Grid.Column="3"
+            FontSize="15"
+            Height="30"
+            Width="180"
+            Text="{Binding Количество_человек_для_производства}"/>
+
+        <TextBlock
+            Grid.Row="2"
+            Grid.Column="2"
+            Text="Номер цеха:"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            FontSize="15"/>
+        
+        <TextBox
+            Name="txtCountCex"
+            Grid.Row="2"
+            Grid.Column="3"
+            Height="30"
+            FontSize="15"
+            Width="180"
+            Text="{Binding Номер_цеха_для_производства}"/>
+
+        <TextBlock
+            Grid.Row="3"
+            Grid.Column="2"
+            Text="Минимальная"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            FontSize="15"/>
+        
+        <TextBlock
+            Grid.Row="3"
+            Grid.Column="2"
+            Text="стоимость для цеха:"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            FontSize="15"
+            Margin="36 28 0 0"/>
+        
+        <TextBox
+            Name="txtMinPrice"
+            Grid.Row="3"
+            Grid.Column="3"
+            Height="30"
+            Width="180"
+            Text="{Binding Минимальная_стоимость_для_агента}"
+            FontSize="15"/>
+
+        <TextBlock
+            Grid.Row="4"
+            Grid.Column="2"
+            Text="Описание:"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            FontSize="15"/>
+        
+        <TextBox
+            Name="txtDescrip"
+            Grid.Row="4"
+            Grid.Column="3"
+            Height="30"
+            Width="180"
+            Text="{Binding Desrrption}"
+            FontSize="15"/>
+
+        <Button
+            Name="btnSave"
+            Grid.Column="1"
+            Grid.Row="5"
+            VerticalAlignment="Center"
+            Background="#FDBD40"
+            Foreground="White"
+            HorizontalAlignment="Center"
+            Click="BtnSave_Click"
+            Height="30"
+            FontSize="15"
+            Width="100"
+            Content="Сохранить"/>
+        
+        <Button
+            Name="btnDelete"
+            Grid.Row="5"
+            VerticalAlignment="Center"
+            Background="#FDBD40"
+            Foreground="White"
+            Grid.Column="2"
+            HorizontalAlignment="Center"
+            Click="BtnDelete_Click"
+            FontSize="15"
+            Height="30"
+            Width="100"
+            Content="Удалить"/>
+
+    </Grid>
+</Page>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d4c1da8b3f0041d2b6b7fdc90de11647" Name="Diagram1">
+        <EntityTypeShape EntityType="user16Model.id_Product_materials" Width="1.5" PointX="0.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="user16Model.id_type_materials" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="user16Model.id_type_products" Width="1.5" PointX="3" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="user16Model.materials_short_s_import" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="user16Model.product_materials" Width="1.5" PointX="3" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="user16Model.products_s_import" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="user16Model.sysdiagrams" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
+        <AssociationConnector Association="user16Model.FK_product_materials_id_Product_materials" ManuallyRouted="false" />
+        <AssociationConnector Association="user16Model.FK_materials_short_s_import_id_type_materials" ManuallyRouted="false" />
+        <AssociationConnector Association="user16Model.FK_products_s_import_id_type_products" ManuallyRouted="false" />
+        <AssociationConnector Association="user16Model.FK_products_s_import_materials_short_s_import" ManuallyRouted="false" />
+        <AssociationConnector Association="user16Model.FK_products_s_import_product_materials" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
